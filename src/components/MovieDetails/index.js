@@ -22,7 +22,8 @@ import {
   Spinner,
   Stack,
 } from "@chakra-ui/react";
-import { useHistory, useLocation } from "react-router-dom";
+import { useHistory, useLocation, useParams} from "react-router-dom";
+
 import useAPIrequest from "../../adapters/useAPIrequest";
 import { IoTime } from "react-icons/io5";
 import { AiFillLike, AiFillStar } from "react-icons/ai";
@@ -50,15 +51,24 @@ import ReactGA from "react-ga4";
 
 const MovieDetails = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-
+  const location = useLocation();
+  const params = useParams();
   const useQuery = () => {
-    return new URLSearchParams(useLocation().search);
+
+    // if (location.pathname.includes("movie_id"))
+    // {
+    //   const path = location.pathname;
+    //   return path.split("/").slice(-1);
+    // }
+
+    return params.movie_id;
+    // return new URLSearchParams(useLocation().search);
   };
 
   const query = useQuery();
   const history = useHistory();
 
-  const id = query.get("movie_id");
+  const id = useQuery(); //query.get("movie_id");
 
   useEffect(() => {
     if (id) {
@@ -67,9 +77,11 @@ const MovieDetails = () => {
   }, [query, id, onOpen]);
 
   const handleClose = () => {
+    console.log(history);
     history.replace({
       search: "",
     });
+    history.goBack();
     onClose();
   };
 
@@ -251,7 +263,7 @@ const MovieDetails = () => {
               <Heading as="h3" fontSize="lg" align="left" w="full">
                 Suggested Movies
               </Heading>
-              <SuggestedMovies id={query.get("movie_id")} />
+              <SuggestedMovies id={id} />
             </VStack>
           )}
           {isLoading && (
