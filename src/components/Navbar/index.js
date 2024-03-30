@@ -21,8 +21,6 @@ import {
   useDisclosure,
   VStack,
 } from "@chakra-ui/react";
-import { ImVideoCamera } from "react-icons/im";
-import { Logo } from "react-icons/im";
 import React, { useState } from "react";
 import ColorModeToggle from "./ColorModeToggle";
 import LogoModeToggle from "./LogoModeToggle";
@@ -108,7 +106,7 @@ const Navbar = ({ toggleSideNav }) => {
                       <Divider mb={3} />
                       <HStack
                         cursor="pointer"
-                        onClick={() => history.push("?movie_id=" + val.id)}
+                        onClick={() => history.push("/movie_id/" + val.id)}
                         spacing={6}
                       >
                         <AspectRatio ratio={2 / 3} w="10%" objectFit="cover">

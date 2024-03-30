@@ -22,7 +22,7 @@ import {
   Spinner,
   Stack,
 } from "@chakra-ui/react";
-import { useHistory, useLocation, useParams} from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 
 import useAPIrequest from "../../adapters/useAPIrequest";
 import { IoTime } from "react-icons/io5";
@@ -51,7 +51,7 @@ import ReactGA from "react-ga4";
 
 const MovieDetails = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const location = useLocation();
+  // const location = useLocation();
   const params = useParams();
   const useQuery = () => {
 
@@ -67,7 +67,6 @@ const MovieDetails = () => {
 
   const query = useQuery();
   const history = useHistory();
-
   const id = useQuery(); //query.get("movie_id");
 
   useEffect(() => {
@@ -77,7 +76,7 @@ const MovieDetails = () => {
   }, [query, id, onOpen]);
 
   const handleClose = () => {
-    console.log(history);
+    // console.log(history);
     history.replace({
       search: "",
     });
@@ -101,14 +100,31 @@ const MovieDetails = () => {
         action: "Viewed",
         label: response.data.movie["title_long"]
         });
-    } else {
+
+      // Check if movie ID is 0 and redirect to /404 page
+      if (response.data.movie["id"] === 0) {
+        history.push('/404');
+      }
+    } 
+    else {
+      // console.log("I am here");
       setIsLoading(true);
+      
     }
-  }, [response]);
+  }, [response, history]);
+
+
+  function containsOnlyDigits(str) {
+    return /^\d+$/.test(str);
+  }
 
   useEffect(() => {
     setIsLoading(true);
-  }, [id]);
+    if(!containsOnlyDigits(id))
+    {
+      history.push('/404');
+    }
+  }, [id, history]);
 
 
 
@@ -119,7 +135,7 @@ const MovieDetails = () => {
         <ModalHeader pb={6} />
         <ModalCloseButton />
         <ModalBody pb={3}>
-          {response && (
+          {response && response.data.movie["id"] !== 0 && (
             <VStack spacing={6}>
               <Stack
                 direction={{ base: "column", sm: "row" }}

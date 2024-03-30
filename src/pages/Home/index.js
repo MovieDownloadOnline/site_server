@@ -5,6 +5,7 @@ import {
   GridItem,
   SimpleGrid,
   useColorModeValue,
+  Heading,
 } from "@chakra-ui/react";
 import React from "react";
 import { Link } from "react-router-dom";
@@ -26,7 +27,9 @@ const Home = () => {
         p={{ base: 3, md: 6 }}
         rounded="xl"
       >
-
+        <Heading as="h1" size='xs' align="center">
+        Access the latest films for free! Browse top-rated, multi-language, high-quality selections. Get instant downloads and streaming in 1080p and 4k qualities.
+        </Heading>
         {//<NewRelease /> 
         }
         <Box display={{ base: "block", lg: "none" }}>

@@ -20,7 +20,7 @@
   },
   "scripts": {
     "start": "react-scripts start --openssl-legacy-provider",
-    "build": "react-scripts build --openssl-legacy-provider",
+    "build": "react-scripts build --openssl-legacy-provider && react-snap --verbose && react-snap-sitemap --base-url=https://moviedownload.online/",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "format": "prettier --write \"src/**/*.{js,jsx}\"",
