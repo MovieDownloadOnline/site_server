@@ -106,7 +106,7 @@ const Navbar = ({ toggleSideNav }) => {
                       <Divider mb={3} />
                       <HStack
                         cursor="pointer"
-                        onClick={() => history.push("/movie_id/" + val.id)}
+                        onClick={() => history.push("/movie-id/" + val.id)}
                         spacing={6}
                       >
                         <AspectRatio ratio={2 / 3} w="10%" objectFit="cover">

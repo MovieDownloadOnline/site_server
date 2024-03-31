@@ -101,7 +101,7 @@ return categories;
 
 // Function to generate URL substrings for movies
 const generateMovieUrls = (movies) => {
-    const baseUrl = "/movie_id/";
+    const baseUrl = "/movie-id/";
     const uniqueMovieIds = new Set();
 
     // Extract unique movie IDs

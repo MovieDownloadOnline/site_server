@@ -27,7 +27,7 @@ const NotFound = () => {
       textAlign="center"
     >
       <Heading as="h1" size="xl" mb={4}>
-        Uh-oh! You've wandered into the void.
+        Uh-oh! You've wandered into the void. | 404 Error
       </Heading>
       <Text fontSize="lg" mb={6}>
         The page you're searching for seems to have taken an unexpected vacation.

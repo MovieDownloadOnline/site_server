@@ -28,7 +28,7 @@ const Home = () => {
         rounded="xl"
       >
         <Heading as="h1" size='xs' align="center">
-        Access the latest films for free! Browse top-rated, multi-language, high-quality selections. Get instant downloads and streaming in 1080p and 4k qualities.
+        Access the latest films for free! Browse top-rated, multi-language, high-quality selections. Get instant downloads and streaming in 1080p and 4k qualities. We have all Hollywood and Bollywood (Hindi) Movies.
         </Heading>
         {//<NewRelease /> 
         }

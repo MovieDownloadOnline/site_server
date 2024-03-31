@@ -55,7 +55,7 @@ const MovieDetails = () => {
   const params = useParams();
   const useQuery = () => {
 
-    // if (location.pathname.includes("movie_id"))
+    // if (location.pathname.includes("movie-id"))
     // {
     //   const path = location.pathname;
     //   return path.split("/").slice(-1);
@@ -67,7 +67,7 @@ const MovieDetails = () => {
 
   const query = useQuery();
   const history = useHistory();
-  const id = useQuery(); //query.get("movie_id");
+  const id = useQuery(); //query.get("movie-id");
 
   useEffect(() => {
     if (id) {
@@ -101,10 +101,10 @@ const MovieDetails = () => {
         label: response.data.movie["title_long"]
         });
 
-      // Check if movie ID is 0 and redirect to /404 page
-      if (response.data.movie["id"] === 0) {
-        history.push('/404');
-      }
+      //Check if movie ID is 0 and redirect to /404 page
+      // if (response.data.movie["id"] === 0) {
+      //   history.push('/404');
+      // }
     } 
     else {
       // console.log("I am here");
@@ -120,10 +120,10 @@ const MovieDetails = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    if(!containsOnlyDigits(id))
-    {
-      history.push('/404');
-    }
+    // if(!containsOnlyDigits(id))
+    // {
+    //   history.push('/404');
+    // }
   }, [id, history]);
 
 

@@ -27,10 +27,10 @@ const MovieCard = ({ img, title, year, rating, isLoading, aspect, id }) => {
   return (
     <VStack
       cursor="pointer"
-      onClick={() => history.push("/movie_id/" + id)}
+      onClick={() => history.push("/movie-id/" + id)}
       // onClick={(e) => {
       //   e.preventDefault();
-      //   window.location.href='/movie_id/' + id;
+      //   window.location.href='/movie-id/' + id;
       //   }
       // }
       align="start"
