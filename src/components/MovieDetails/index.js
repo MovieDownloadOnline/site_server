@@ -106,8 +106,11 @@ const MovieDetails = () => {
         const imdbResponse = await fetch(
           `https://www.omdbapi.com/?apikey=ba1f4581&i=${imdbCode}`
         );
+        if (imdbResponse.ok) 
+        {
         const imdbData = await imdbResponse.json();
         setImdb(imdbData);
+        }
       })();
     }
   }, [imdbCode]);
