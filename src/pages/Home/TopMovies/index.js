@@ -55,6 +55,7 @@ const TopMovies = ({ type }) => {
                   isLoading={isLoading}
                   rating={val["rating"]}
                   id={val["id"]}
+                  slug={val["slug"]}
                 />
               </GridItem>
             );

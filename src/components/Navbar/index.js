@@ -60,7 +60,7 @@ const Navbar = ({ toggleSideNav }) => {
             display={{ base: "flex", sm: "none" }}
             icon={<GoPerson />}
           ></IconButton>
-          <ColorModeToggle />
+          {/* <ColorModeToggle /> */}
           <IconButton
             onClick={toggleSideNav}
             display={{ base: "flex", md: "none" }}
@@ -106,7 +106,7 @@ const Navbar = ({ toggleSideNav }) => {
                       <Divider mb={3} />
                       <HStack
                         cursor="pointer"
-                        onClick={() => history.push("/movie-id/" + val.id)}
+                        onClick={() => history.push("/movie/" + val.slug + "-" + val.id)}
                         spacing={6}
                       >
                         <AspectRatio ratio={2 / 3} w="10%" objectFit="cover">

@@ -13,7 +13,7 @@ import React, { useEffect, useState } from "react";
 import { AiFillStar } from "react-icons/ai";
 import { useHistory } from "react-router-dom";
 
-const MovieCard = ({ img, title, year, rating, isLoading, aspect, id }) => {
+const MovieCard = ({ img, title, year, rating, isLoading, aspect, id, slug }) => {
   const [imageIsLoading, setImageIsLoading] = useState(true);
 
   const history = useHistory();
@@ -27,7 +27,7 @@ const MovieCard = ({ img, title, year, rating, isLoading, aspect, id }) => {
   return (
     <VStack
       cursor="pointer"
-      onClick={() => history.push("/movie-id/" + id)}
+      onClick={() => history.push("/movie/" + slug + "-" + id)}
       align="start"
       _hover={{ transform: "scale(1.05)" }}
       transition=".25s ease-in-out"

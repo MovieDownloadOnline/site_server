@@ -48,6 +48,7 @@ const NewRelease = () => {
           (item.title = response.data.movies[index]["title_long"]),
           (item.id = response.data.movies[index]["id"]),
           (item.youtube = response.data.movies[index]["yt_trailer_code"]),
+          (item.slug = response.data.movies[index]["slug"]),
         ];
       });
 
@@ -77,6 +78,7 @@ const NewRelease = () => {
                 title={item.title}
                 id={item.id}
                 youtube={item.youtube}
+                slug={item.slug}
               />
             );
           })}

@@ -14,7 +14,7 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import YoutubeEmbedded from "../../../../components/YoutubeEmbedded";
 
-const ReleaseCard = ({ show, title, img, id, youtube }) => {
+const ReleaseCard = ({ show, title, img, id, youtube, slug }) => {
   const history = useHistory();
 
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -49,7 +49,7 @@ const ReleaseCard = ({ show, title, img, id, youtube }) => {
         </Heading>
         <Button
           size="sm"
-          onClick={() => history.push("/movie-id/" + id)}
+          onClick={() => history.push("/movie/" + slug + "-" + id)}
           colorScheme="green"
           boxShadow="dark-lg"
         >

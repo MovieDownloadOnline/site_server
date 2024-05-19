@@ -33,28 +33,30 @@ while (totalMovies < 1000) {
     for (const movie of movies) {
     // Latest
     categories.latest.push(movie);
-
+    // console.log(movie.genres)
     // Most Rated
     if (movie.rating >= 8) {
         categories.mostRated.push(movie);
     }
-
-    // Animation
-    if (movie.genres.includes("Animation")) {
-        categories.animationLatest.push(movie);
-        if (movie.rating >= 8) {
-        categories.animationMostRated.push(movie);
+    if (movie.genres)
+    {
+        // Animation
+        if (movie.genres.includes("Animation")) {
+            categories.animationLatest.push(movie);
+            if (movie.rating >= 8) {
+            categories.animationMostRated.push(movie);
+            }
         }
-    }
 
-    // Action
-    if (movie.genres.includes("Action")) {
-        categories.actionLatest.push(movie);
-        if (movie.rating >= 8) {
-        categories.actionMostRated.push(movie);
+        // Action
+        if (movie.genres.includes("Action")) {
+            categories.actionLatest.push(movie);
+            if (movie.rating >= 8) {
+            categories.actionMostRated.push(movie);
+            }
         }
-    }
 
+    }
     // Hindi
     if (movie.language === "hi") {
         categories.hindiLatest.push(movie);
@@ -101,7 +103,7 @@ return categories;
 
 // Function to generate URL substrings for movies
 const generateMovieUrls = (movies) => {
-    const baseUrl = "/movie-id/";
+    const baseUrl = "/movie/";
     const uniqueMovieIds = new Set();
 
     // Extract unique movie IDs
@@ -110,7 +112,7 @@ const generateMovieUrls = (movies) => {
         if (movies.hasOwnProperty(category)) {
         for (const movie of movies[category]) {
             // console.log(movie.id);
-            uniqueMovieIds.add(movie.id);
+            uniqueMovieIds.add(movie.slug + "-" + movie.id);
         }
         }
     }

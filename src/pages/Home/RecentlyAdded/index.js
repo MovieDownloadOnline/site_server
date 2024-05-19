@@ -58,12 +58,12 @@ const RecentlyAdded = () => {
               <GridItem key={key} w="full">
                 <MovieCardSmall
                   img={val["medium_cover_image"]}
-                  
                   title={val["title_english"]}
                   year={val["year"]}
                   isLoading={isLoading}
                   rating={val["rating"]}
                   id={val["id"]}
+                  slug={val["slug"]}
                 />
               </GridItem>
             );
