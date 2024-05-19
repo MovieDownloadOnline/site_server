@@ -26,7 +26,7 @@ let page = 1;
 let totalMovies = 0;
 
 // Fetch movies until we have gathered enough
-while (totalMovies < 1000) {
+while (totalMovies < 5000) {
     const movies = await fetchMoviesByPage(page);
 
     // Iterate over fetched movies and categorize them
@@ -82,13 +82,13 @@ categories.hindiMostRated = categories.hindiLatest
     .slice(0, 100);
 
 // Select top 100 Most Rated movies for other categories if not already selected
-if (categories.mostRated.length > 100) {
+if (categories.mostRated.length > 500) {
     categories.animationMostRated = categories.animationLatest
     .filter((movie) => movie.rating >= 8)
-    .slice(0, 100);
+    .slice(0, 500);
     categories.actionMostRated = categories.actionLatest
     .filter((movie) => movie.rating >= 8)
-    .slice(0, 100);
+    .slice(0, 500);
 } else {
     categories.animationMostRated = categories.animationLatest
     .filter((movie) => movie.rating >= 8)
